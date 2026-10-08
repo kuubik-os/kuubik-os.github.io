@@ -7,7 +7,7 @@
   </head>
   <body>
     <h2>kuubik</h2>
-    <h3>Changes from upstream</h3>
+    <h3>Features</h3>
     <ul>
       <li><b>CachyOS kernel</b> instead of stock Fedora kernel.</li>
       <li><b>NVIDIA</b> drivers (negativo17) in the <code>kuubik-nvidia</code> image.</li>
@@ -33,12 +33,19 @@ brew update && brew upgrade  # brew</pre>
     <p>Installed but disabled. Enable with:</p>
     <pre>sudo systemctl enable --now tailscaled</pre>
 
-    <h2>Install</h2>
-    <p>Install Fedora Kinoite, then rebase to unsigned image:</p>
+    <h3>Install</h3>
+    <p>For AMD/Intel GPUs: </p>
+    <p>1) Install Fedora Kinoite, then rebase to unsigned image:</p>
     <pre>rpm-ostree rebase ostree-unverified-registry:ghcr.io/kuubik-os/kuubik</pre>
-    <p>Reboot, then switch to signed image:</p>
+    <p>2) Reboot, then switch to signed image:</p>
     <pre>rpm-ostree rebase ostree-image-signed:docker://ghcr.io/kuubik-os/kuubik</pre>
-    <p>For NVIDIA, use <code>kuubik-nvidia</code> instead of stock <code>kuubik</code>. Secure Boot is not supported for now.</p>
+    <p>For NVIDIA: </p>
+    <p>1) Install Fedora Kinoite, then rebase to unsigned image:</p>
+    <pre>rpm-ostree rebase ostree-unverified-registry:ghcr.io/kuubik-os/kuubik-nvidia</pre>
+    <p>2) Reboot, then switch to signed image:</p>
+    <pre>rpm-ostree rebase ostree-image-signed:docker://ghcr.io/kuubik-os/kuubik-nvidia</pre>
+    
+    <p>Secure boot is not supported for now.</p>
 
     <p><a href="https://github.com/kuubik-os/kuubik">Source on GitHub</a></p>
   </body>
