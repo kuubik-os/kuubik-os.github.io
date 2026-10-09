@@ -7,44 +7,32 @@
   </head>
   <body>
     <h2>kuubik OS</h2>
+    <p><a href="install.html">Install</a> | <a href="install-lts.html">Install LTS</a> | <a href="kctl.html">kctl</a></p>
+
+    <h3>Releases</h3>
+    <ul>
+      <li><b>kuubik</b>: based on Fedora Kinoite, latest Fedora and CachyOS kernel.</li>
+      <li><b>kuubik LTS</b>: based on AlmaLinux 10, with CachyOS LTS kernel. Slower moving, for those who want stable base.</li>
+    </ul>
+    <p>Both have <code>-nvidia</code> variant.</p>
+
     <h3>Features</h3>
     <ul>
-      <li><b>CachyOS kernel</b> instead of stock Fedora kernel.</li>
-      <li><b>NVIDIA</b> drivers (negativo17) in the <code>kuubik-nvidia</code> image.</li>
+      <li><b>CachyOS kernel</b> instead of stock kernel. LTS uses CachyOS LTS kernel.</li>
+      <li><b>NVIDIA</b> drivers (negativo17) in the <code>kuubik-nvidia</code> and <code>kuubik-lts-nvidia</code> images.</li>
       <li><b>Multimedia codecs</b> from RPM Fusion.</li>
       <li><b>Less bloat</b>: LibreOffice, Firefox, KDE games and other default apps removed. Install what you need from Flathub.</li>
       <li><b>Flathub</b> enabled out of the box.</li>
       <li><b>Homebrew</b> installed on first boot.</li>
       <li><b>Extra packages</b>: distrobox, tailscale (disabled by default.).</li>
       <li><b>Manual updates</b>: no automatic background updates. You get a notification when system is more than month old.</li>
-      <li><b>kctl</b>: CLI tool to manage the system.</li>
+      <li><b><a href="kctl.html">kctl</a></b>: CLI tool to manage the system.</li>
     </ul>
-
-    <h3>kctl</h3>
-    <pre>kctl upgrade                 # update system image, flatpaks and brew
-kctl disable-update-notify   # turn off "out of date" notification
-kctl help                    # show help</pre>
-    <p>To update only one thing:</p>
-    <pre>rpm-ostree upgrade           # system image, reboot to apply
-flatpak update               # flatpaks
-brew update && brew upgrade  # brew</pre>
 
     <h3>Tailscale</h3>
     <p>Installed but disabled. Enable with:</p>
     <pre>sudo systemctl enable --now tailscaled</pre>
 
-    <h3>Install</h3>
-    <p>For AMD/Intel GPUs: </p>
-    <p>1) Install Fedora Kinoite, then rebase to unsigned image:</p>
-    <pre>rpm-ostree rebase ostree-unverified-registry:ghcr.io/kuubik-os/kuubik</pre>
-    <p>2) Reboot, then switch to signed image:</p>
-    <pre>rpm-ostree rebase ostree-image-signed:docker://ghcr.io/kuubik-os/kuubik</pre>
-    <p>For NVIDIA: </p>
-    <p>1) Install Fedora Kinoite, then rebase to unsigned image:</p>
-    <pre>rpm-ostree rebase ostree-unverified-registry:ghcr.io/kuubik-os/kuubik-nvidia</pre>
-    <p>2) Reboot, then switch to signed image:</p>
-    <pre>rpm-ostree rebase ostree-image-signed:docker://ghcr.io/kuubik-os/kuubik-nvidia</pre>
-    
     <p>Secure boot is not supported for now.</p>
 
     <p><a href="https://github.com/kuubik-os/kuubik">Source on GitHub</a></p>

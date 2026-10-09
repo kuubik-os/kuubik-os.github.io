@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>kctl - kuubik OS</title>
+    <meta name="color-scheme" content="light dark">
+  </head>
+  <body>
+    <h2>kctl</h2>
+    <p><a href="index.html">Home</a> | <a href="install.html">Install</a> | <a href="install-lts.html">Install LTS</a></p>
+
+    <p>CLI tool to manage the system. Same on all images.</p>
+    <pre>kctl upgrade                 # update system image, flatpaks and brew
+kctl disable-update-notify   # turn off "out of date" notification
+kctl help                    # show help</pre>
+
+    <h3>Update only one thing</h3>
+    <pre>rpm-ostree upgrade           # system image, reboot to apply
+flatpak update               # flatpaks
+brew update && brew upgrade  # brew</pre>
+  </body>
+</html>
