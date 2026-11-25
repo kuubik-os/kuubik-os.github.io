@@ -7,11 +7,14 @@
   </head>
   <body>
     <h2>kctl</h2>
-    <p><a href="index.html">Home</a> | <a href="install.html">Install</a> | <a href="install-lts.html">Install LTS</a></p>
+    <p><a href="index.html">Home</a> | <a href="install.html">Install</a></p>
 
     <p>CLI tool to manage the system. Same on all images.</p>
     <pre>kctl upgrade                 # update system image, flatpaks and brew
+kctl rollback                # pick a system image to boot, incl. the one you installed with
+kctl overrides               # list local changes: packages, /etc files, unlocked /usr, initramfs
 kctl disable-update-notify   # turn off "out of date" notification
+kctl enroll-secure-boot-key  # queue the kuubik secure boot key for enrollment
 kctl help                    # show help</pre>
 
     <h3>Update only one thing</h3>

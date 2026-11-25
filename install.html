@@ -7,8 +7,16 @@
   </head>
   <body>
     <h2>Install kuubik</h2>
-    <p><a href="index.html">Home</a> | <a href="install-lts.html">Install LTS</a> | <a href="kctl.html">kctl</a></p>
+    <p><a href="index.html">Home</a> | <a href="kctl.html">kctl</a></p>
 
+    <h3>Install from ISO</h3>
+    <p>Download the <a href="https://github.com/kuubik-os/kuubik/releases/download/netinstall/kuubik-netinstall-amd64.iso">netinstall ISO</a>, boot it and pick <code>kuubik</code> (AMD/Intel GPUs) or <code>kuubik-nvidia</code> (NVIDIA GPUs) in the boot menu. It installs the image over the network, so it needs internet.</p>
+    <p>Verify it with the <code>-CHECKSUM</code> and <code>.sig</code> files from the <a href="https://github.com/kuubik-os/kuubik/releases/tag/netinstall">same release</a>:</p>
+    <pre>sha256sum -c kuubik-netinstall-amd64.iso-CHECKSUM
+cosign verify-blob --key https://raw.githubusercontent.com/kuubik-os/kuubik/main/cosign.pub \
+  --signature kuubik-netinstall-amd64.iso.sig kuubik-netinstall-amd64.iso</pre>
+
+    <h3>Or rebase from Fedora Kinoite</h3>
     <p>For AMD/Intel GPUs: </p>
     <p>1) Install <a href="https://fedoraproject.org/atomic-desktops/kinoite/download/">Fedora Kinoite</a>, then rebase to unsigned image:</p>
     <pre>rpm-ostree rebase ostree-unverified-registry:ghcr.io/kuubik-os/kuubik</pre>
@@ -20,6 +28,11 @@
     <p>2) Reboot, then switch to signed image:</p>
     <pre>rpm-ostree rebase ostree-image-signed:docker://ghcr.io/kuubik-os/kuubik-nvidia</pre>
 
-    <p>Secure boot is not supported for now.</p>
+    <h3 id="secure-boot">Secure boot</h3>
+    <p>Kernel and NVIDIA driver are signed with the kuubik key, which has to be enrolled once:</p>
+    <ul>
+      <li>ISO install: the key is queued during install. On first reboot pick "Enroll MOK" and enter password <code>kuubik</code>.</li>
+      <li>Rebase install: run <code>kctl enroll-secure-boot-key</code>, reboot, enroll, then enable secure boot.</li>
+    </ul>
   </body>
 </html>

@@ -11,24 +11,25 @@
     <h3>Releases</h3>
     <ul>
       <li><b>kuubik</b>: based on Fedora Kinoite, latest Fedora and CachyOS kernel. <a href="install.html">Install</a> </li>
-      <li><b>kuubik LTS</b>: based on AlmaLinux 10, with CachyOS LTS kernel. Slower moving, for those who want stable base. <a href="install-lts.html">Install LTS</a> </li>
+      <li><b>kuubik-nvidia</b>: same, with NVIDIA drivers. <a href="install.html">Install</a> </li>
     </ul>
-    <p>Both have <code>-nvidia</code> variant.</p>
 
     <h3>Features</h3>
     <ul>
-      <li><b>CachyOS kernel</b> instead of stock kernel. LTS uses CachyOS LTS kernel.</li>
-      <li><b>NVIDIA</b> drivers (negativo17) in the <code>kuubik-nvidia</code> and <code>kuubik-lts-nvidia</code> images.</li>
+      <li><b>CachyOS kernel</b> instead of stock kernel.</li>
+      <li><b>NVIDIA</b> drivers (negativo17) in the <code>kuubik-nvidia</code> image.</li>
       <li><b>Multimedia codecs</b> from RPM Fusion.</li>
       <li><b>Less bloat</b>: LibreOffice, Firefox, KDE games and other default apps removed. Install what you need from Flathub.</li>
       <li><b>Flathub</b> enabled out of the box.</li>
       <li><b>Homebrew</b> installed on first boot.</li>
+      <li><b>Gaming</b>: Steam and latest <a href="https://github.com/CachyOS/proton-cachyos">proton-cachyos</a> preinstalled.</li>
+      <li><b>VMs</b>: <a href="https://github.com/mroboff/vm-curator">vm-curator</a> with QEMU/KVM, UEFI and TPM.</li>
       <li><b>Extra packages</b>: distrobox, tailscale (disabled by default. enable with `sudo systemctl enable --now tailscaled`).</li>
       <li><b>Manual updates</b>: no automatic background updates. You get a notification when system is more than month old.</li>
       <li><b><a href="kctl.html">kctl</a></b>: CLI tool to manage the system.</li>
     </ul>
 
-    <p>Secure boot is not supported for now.</p>
+    <p><b>Secure boot</b> supported: kernel and NVIDIA driver are signed with the kuubik key. See <a href="install.html#secure-boot">install</a>.</p>
 
     <p><a href="https://github.com/kuubik-os/kuubik">Source on GitHub</a></p>
   </body>
