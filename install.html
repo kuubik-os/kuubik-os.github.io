@@ -2,38 +2,28 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Install - kuubik OS</title>
+    <title>Install - kuubik</title>
     <meta name="color-scheme" content="light dark">
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <h2>Install kuubik</h2>
-    <p><a href="index.html">Home</a> | <a href="kctl.html">kctl</a></p>
+    <h2>Install</h2>
+    <nav><span><a href="index.html">Home</a> | <a href="install.html">Install</a> | <a href="secureboot.html">Secure boot</a> | <a href="kctl.html">kctl</a></span>
+      <a class="gh" href="https://github.com/kuubik-os/kuubik"><svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>GitHub</a>
+    </nav>
 
-    <h3>Install from ISO</h3>
-    <p>Download the <a href="https://github.com/kuubik-os/kuubik/releases/download/netinstall/kuubik-netinstall-amd64.iso">netinstall ISO</a>, boot it and pick <code>kuubik</code> (AMD/Intel GPUs) or <code>kuubik-nvidia</code> (NVIDIA GPUs) in the boot menu. It installs the image over the network, so it needs internet.</p>
-    <p>Verify it with the <code>-CHECKSUM</code> and <code>.sig</code> files from the <a href="https://github.com/kuubik-os/kuubik/releases/tag/netinstall">same release</a>:</p>
+    <h3>From ISO</h3>
+    <p>Download the <a href="https://github.com/kuubik-os/kuubik/releases/download/netinstall/kuubik-netinstall-amd64.iso">ISO</a>, boot it and pick <code>kuubik</code> or <code>kuubik-nvidia</code>. Needs internet.</p>
+    <p>To verify it, get the <code>-CHECKSUM</code> and <code>.sig</code> files from <a href="https://github.com/kuubik-os/kuubik/releases/tag/netinstall">release page</a>:</p>
     <pre>sha256sum -c kuubik-netinstall-amd64.iso-CHECKSUM
 cosign verify-blob --key https://raw.githubusercontent.com/kuubik-os/kuubik/main/cosign.pub \
   --signature kuubik-netinstall-amd64.iso.sig kuubik-netinstall-amd64.iso</pre>
 
-    <h3>Or rebase from Fedora Kinoite</h3>
-    <p>For AMD/Intel GPUs: </p>
-    <p>1) Install <a href="https://fedoraproject.org/atomic-desktops/kinoite/download/">Fedora Kinoite</a>, then rebase to unsigned image:</p>
+    <h3>From Fedora Kinoite</h3>
+    <p>On <a href="https://fedoraproject.org/atomic-desktops/kinoite/download/">Fedora Kinoite</a>, rebase and reboot. For NVIDIA use <code>kuubik-nvidia</code> instead of <code>kuubik</code>.</p>
     <pre>rpm-ostree rebase ostree-unverified-registry:ghcr.io/kuubik-os/kuubik</pre>
-    <p>2) Reboot, then switch to signed image:</p>
+    <p>Then switch to signed image and reboot again:</p>
     <pre>rpm-ostree rebase ostree-image-signed:docker://ghcr.io/kuubik-os/kuubik</pre>
-    <p>For NVIDIA: </p>
-    <p>1) Install <a href="https://fedoraproject.org/atomic-desktops/kinoite/download/">Fedora Kinoite</a>, then rebase to unsigned image:</p>
-    <pre>rpm-ostree rebase ostree-unverified-registry:ghcr.io/kuubik-os/kuubik-nvidia</pre>
-    <p>2) Reboot, then switch to signed image:</p>
-    <pre>rpm-ostree rebase ostree-image-signed:docker://ghcr.io/kuubik-os/kuubik-nvidia</pre>
-
-    <h3 id="secure-boot">Secure boot</h3>
-    <p>Kernel and NVIDIA driver are signed with the kuubik key, which has to be enrolled once:</p>
-    <ul>
-      <li>ISO install: the key is queued during install. On first reboot pick "Enroll MOK" and enter password <code>kuubik</code>.</li>
-      <li>Rebase install: run <code>kctl enroll-secure-boot-key</code>, reboot, enroll, then enable secure boot.</li>
-    </ul>
+    <p>For secure boot, see <a href="secureboot.html">Secure boot</a>.</p>
   </body>
 </html>

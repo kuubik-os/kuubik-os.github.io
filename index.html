@@ -8,35 +8,31 @@
   </head>
   <body>
     <h2>kuubik</h2>
-    <p><span><a href="index.html">Home</a> | <a href="install.html">Install</a> | <a href="secureboot.html">Secure boot</a> | <a href="kctl.html">kctl</a></span>
+    <nav><span><a href="index.html">Home</a> | <a href="install.html">Install</a> | <a href="secureboot.html">Secure boot</a> | <a href="kctl.html">kctl</a></span>
       <a class="gh" href="https://github.com/kuubik-os/kuubik"><svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>GitHub</a>
-    </p>
+    </nav>
 
-    <p>Minimal atomic OS with KDE Plasma.</p>
+    <p>Minimal atomic OS with KDE Plasma, based on Fedora Kinoite.</p>
 
     <h3>Images</h3>
     <ul>
-      <li><b>kuubik</b>: based on Fedora Kinoite, latest Fedora and CachyOS kernel. <a href="install.html">Install</a> </li>
-      <li><b>kuubik-nvidia</b>: same, with NVIDIA drivers. <a href="install.html">Install</a> </li>
+      <li><b>kuubik</b>: for AMD and Intel GPUs.</li>
+      <li><b>kuubik-nvidia</b>: for NVIDIA GPUs.</li>
     </ul>
 
     <h3>Features</h3>
     <ul>
-      <li><b>CachyOS kernel</b> instead of stock kernel.</li>
-      <li><b>NVIDIA</b> drivers (negativo17) in the <code>kuubik-nvidia</code> image.</li>
+      <li><b>CachyOS kernel</b> instead of Fedora kernel.</li>
+      <li><b>NVIDIA drivers</b> from negativo17 in <code>kuubik-nvidia</code>.</li>
       <li><b>Multimedia codecs</b> from RPM Fusion.</li>
-      <li><b>Less bloat</b>: LibreOffice, Firefox, KDE games and other default apps removed. Install what you need from Flathub.</li>
-      <li><b>Flathub</b> enabled out of the box.</li>
-      <li><b>Homebrew</b> installed on first boot.</li>
-      <li><b>Gaming</b>: Steam and latest <a href="https://github.com/CachyOS/proton-cachyos">proton-cachyos</a> preinstalled.</li>
-      <li><b>VMs</b>: <a href="https://github.com/mroboff/vm-curator">vm-curator</a> with QEMU/KVM, UEFI and TPM.</li>
-      <li><b>Extra packages</b>: distrobox, tailscale (disabled by default. enable with `sudo systemctl enable --now tailscaled`).</li>
-      <li><b>Manual updates</b>: no automatic background updates. You get a notification when system is more than month old.</li>
-      <li><b><a href="kctl.html">kctl</a></b>: CLI tool to manage the system.</li>
+      <li><b>Less bloat</b>: LibreOffice, Firefox, KDE games and other apps removed. Get what you need from Flathub.</li>
+      <li><b>Flathub</b> and <b>Homebrew</b> ready to use.</li>
+      <li><b>Gaming</b>: Steam and latest <a href="https://github.com/CachyOS/proton-cachyos">proton-cachyos</a>.</li>
+      <li><b>VMs</b>: <a href="https://github.com/mroboff/vm-curator">vm-curator</a> with QEMU/KVM.</li>
+      <li><b>Extras</b>: distrobox, tailscale (off by default, turn on with <code>sudo systemctl enable --now tailscaled</code>).</li>
+      <li><b>Manual updates</b>: nothing updates in the background. You get a reminder when the system is over a month old.</li>
+      <li><b><a href="secureboot.html">Secure boot</a></b> support.</li>
+      <li><b><a href="kctl.html">kctl</a></b>: one command to update and manage the system.</li>
     </ul>
-
-    <p><b>Secure boot</b> supported: kernel and NVIDIA driver are signed with the kuubik key. See <a href="install.html#secure-boot">install</a>.</p>
-
-    <p><a href="https://github.com/kuubik-os/kuubik">Source on GitHub</a></p>
   </body>
 </html>

@@ -7,8 +7,7 @@ body {
   line-height: 1.6;
 }
 h2 { margin-bottom: 0.25rem; }
-/* link bar under the page title */
-h2 + p { display: flex; justify-content: space-between; align-items: center; margin-top: 0; padding-bottom: 0.75rem; border-bottom: 2px solid color-mix(in srgb, currentColor 20%, transparent); }
+nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; padding-bottom: 0.75rem; border-bottom: 2px solid color-mix(in srgb, currentColor 20%, transparent); }
 h3 { margin-top: 2rem; border-bottom: 1px solid color-mix(in srgb, currentColor 20%, transparent); }
 a { color: #3d8bfd; }
 li { margin: 0.3rem 0; }
@@ -16,6 +15,5 @@ code, pre { font-family: ui-monospace, "Cascadia Code", "JetBrains Mono", monosp
 code, pre { background: color-mix(in srgb, currentColor 8%, transparent); border-radius: 4px; }
 code { padding: 0.1em 0.3em; }
 pre { padding: 0.8rem 1rem; overflow-x: auto; }
-pre code { padding: 0; background: none; }
 .gh { display: inline-flex; align-items: center; gap: 0.35em; }
 .gh svg { width: 1em; height: 1em; }
